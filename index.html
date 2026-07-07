@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twin Stars Tattoo — Selma, NC</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Twin Stars Tattoo",
+  "image": "assets/logo.png",
+  "url": "https://twinstarstattoo.com",
+  "telephone": "+19847661339",
+  "email": "twinstarstattoo@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "110 W. Anderson Street",
+    "addressLocality": "Selma",
+    "addressRegion": "NC",
+    "postalCode": "27576",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday"], "opens": "11:00", "closes": "19:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday","Sunday"], "opens": "11:00", "closes": "19:00" }
+  ],
+  "sameAs": [
+    "https://instagram.com/twinstarstattoo",
+    "https://tiktok.com/@twinstarstattoo"
+  ],
+  "priceRange": "$60+"
+}
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500;600&display=swap');
+
+  :root{
+    --cream:#CFBCA5;
+    --cream-dark:#C2AD92;
+    --ink:#232326;
+    --navy:#393443;
+    --navy-deep:#302B39;
+    --rose:#8F5B60;
+    --rose-deep:#7A4A50;
+    --gold:#B9924F;
+    --gold-soft:#D8BC80;
+    --line: rgba(35,35,38,0.14);
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'EB Garamond', Georgia, serif;
+    --font-utility: 'Jost', -apple-system, sans-serif;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{ background:var(--cream); color:var(--ink); font-family:var(--font-body); font-size:19px; line-height:1.6; overflow-x:hidden; }
+  ::selection{ background:var(--gold-soft); color:var(--ink); }
+  h1,h2,h3,.display{ font-family:var(--font-display); letter-spacing:0.01em; }
+  a{ color:inherit; }
+
+  .eyebrow{
+    font-family:var(--font-utility); font-size:0.74rem; letter-spacing:0.28em; text-transform:uppercase;
+    color:var(--gold); display:flex; align-items:center; justify-content:center; gap:0.7rem;
+  }
+  .eyebrow::before, .eyebrow::after{ content:"✦"; font-size:0.7rem; }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1.2rem 4vw;
+    background:var(--ink); color:var(--cream);
+  }
+  nav ul{ list-style:none; display:flex; gap:2rem; font-family:var(--font-utility); font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; }
+  nav a{ text-decoration:none; }
+  nav a:hover{ color:var(--gold-soft); }
+  header .brand{ display:flex; align-items:center; gap:0.5rem; font-family:var(--font-display); font-style:italic; font-size:1.3rem; }
+  header .brand .stars{ color:var(--gold); }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:9rem 4vw 4rem;
+    background:var(--cream);
+    display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center;
+    position:relative;
+  }
+  .hero-copy{ text-align:left; }
+  .hero-copy .eyebrow{ justify-content:flex-start; margin-bottom:1rem; }
+  .hero-copy .eyebrow::after{ display:none; }
+  .hero h1{
+    font-size:clamp(2.6rem, 5.2vw, 4.4rem); font-style:italic; font-weight:600; line-height:1.05;
+  }
+  .hero h1 span{ display:block; }
+  .hero .tagline{ font-style:italic; font-size:1.25rem; color:#4a3d30; margin-top:1.2rem; }
+  .hero-actions{ margin-top:2.2rem; }
+  .btn-dark{
+    display:inline-flex; align-items:center; gap:0.6rem;
+    font-family:var(--font-utility); font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase;
+    text-decoration:none; background:var(--ink); color:var(--gold-soft);
+    padding:0.95rem 1.8rem; border:1px solid var(--gold);
+    transition:background .25s ease;
+  }
+  .btn-dark:hover{ background:#000; }
+
+  .hero-frame{
+    position:relative; aspect-ratio:4/5; overflow:hidden;
+    border-radius:200px 200px 8px 8px;
+    border:6px solid var(--cream-dark);
+    background:linear-gradient(155deg, #2a2118, #14100c);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--gold-soft); text-align:center;
+  }
+  .hero-frame .ph-label{ font-family:var(--font-utility); font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.75; padding:0 2rem; }
+
+.hero-fairy{
+    position:absolute; right:1vw; bottom:0; height:92%; width:auto;
+    filter:grayscale(1) sepia(0.25) contrast(1.05);
+    opacity:0.35; pointer-events:none; z-index:0;
+  }
+  .hero-copy, .hero-frame{ position:relative; z-index:1; }
+
+  /* ---------- ABOUT (dark navy split) ---------- */
+  .about{
+    background:var(--navy); color:var(--cream);
+    padding:6rem 4vw;
+    display:grid; grid-template-columns:220px 1fr 1fr; gap:0;
+    align-items:center;
+    position:relative;
+  }
+  .about-illustration{
+    height:340px; width:100%; object-fit:cover; object-position:top center;
+    filter:grayscale(1) contrast(1.08); border-radius:4px;
+    opacity:0.9;
+  }
+  .about-col.divided{
+    border-left:1px solid rgba(216,188,128,0.3);
+    margin-left:2.5rem;
+  }
+  .about-col{ padding:1rem 3rem; position:relative; z-index:2; }
+  .about-col:first-child{ padding-left:1rem; }
+  .about .eyebrow{ justify-content:flex-start; color:var(--gold-soft); margin-bottom:1.2rem; }
+  .about .eyebrow::after{ display:none; }
+  .about h3{ font-size:1.9rem; font-style:italic; margin-bottom:1rem; }
+  .about p{ color:#cfcbe0; }
+  .about a.more{ display:inline-block; margin-top:1rem; font-family:var(--font-utility); font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase; text-decoration:underline; color:var(--gold-soft); }
+  .about ul{ list-style:none; font-style:italic; font-size:1.3rem; }
+  .about ul li{ padding:0.35rem 0; }
+  .moon{
+    position:absolute; right:6vw; top:50%; transform:translateY(-50%);
+    width:90px; height:90px; border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, var(--gold-soft), var(--gold) 60%, #8a6a30 100%);
+    box-shadow: 30px 0 0 -8px var(--navy-deep) inset;
+    opacity:0.9;
+  }
+  .moon::after{
+    content:""; position:absolute; inset:0; border-radius:50%;
+    background:var(--navy); transform:translateX(28px); opacity:0.92;
+  }
+
+  /* ---------- GALLERY ---------- */
+  .gallery{ background:var(--cream); padding:5rem 4vw; text-align:center; position:relative; }
+  .gallery h2{ font-size:1.05rem; font-family:var(--font-utility); letter-spacing:0.2em; text-transform:uppercase; color:var(--rose-deep); margin-bottom:2.4rem; font-style:normal; }
+  .filmstrip{ display:grid; grid-template-columns:repeat(5,1fr); gap:0.9rem; }
+  .film-item{
+    aspect-ratio:3/4; border-radius:6px;
+    border:1.5px dashed rgba(140,74,92,0.4);
+    background:linear-gradient(160deg, rgba(140,74,92,0.08), rgba(185,146,79,0.08));
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-utility); font-size:0.65rem; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--rose-deep); text-align:center; padding:0.8rem;
+  }
+  .gallery-link{ display:block; margin-top:2.2rem; font-family:var(--font-utility); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; text-decoration:underline; color:var(--ink); }
+
+  /* ---------- FLASH / BOOKING BAND ---------- */
+  .band{
+    background:var(--rose-deep); color:#f3e3e8;
+    padding:5rem 4vw;
+    display:grid; grid-template-columns:1fr 1fr 1fr; gap:2rem; align-items:center;
+  }
+  .band-col h3{ font-family:var(--font-utility); font-size:0.9rem; letter-spacing:0.16em; text-transform:uppercase; margin-bottom:0.8rem; color:var(--gold-soft); }
+  .band-col p{ font-style:italic; color:#f0dde3; margin-bottom:0.6rem; }
+  .band-col a.link{ font-family:var(--font-utility); font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; text-decoration:underline; }
+  .flash-grid{ display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; margin-top:1rem; }
+  .flash-thumb{
+    aspect-ratio:1/1; border-radius:4px; border:1px dashed rgba(216,188,128,0.5);
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.6rem; font-family:var(--font-utility); text-align:center; padding:0.4rem;
+    color:var(--gold-soft);
+  }
+  .cta-stone{
+    background:var(--ink); color:var(--gold-soft);
+    border-radius:60px 60px 10px 10px;
+    padding:2.6rem 1.6rem 2rem; text-align:center;
+    font-family:var(--font-display); font-style:italic; font-size:1.35rem;
+  }
+  .cta-stone .btn-mini{
+    display:inline-block; margin-top:1.2rem; font-family:var(--font-utility); font-style:normal;
+    font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; text-decoration:underline;
+  }
+  .band-illustration{
+    aspect-ratio:1/1; border-radius:8px; overflow:hidden; margin-top:1.4rem;
+  }
+  .band-illustration img{
+    width:100%; height:100%; object-fit:cover; object-position:top center;
+    filter:grayscale(1) contrast(1.05); opacity:0.92;
+  }
+
+  /* ---------- SERVICES / PROCESS / POLICIES (content continues below the mockup) ---------- */
+  .flash-gallery{ background:var(--cream-dark); padding:6rem 4vw; position:relative; }
+  .flash-full-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; max-width:1100px; margin:0 auto; }
+  .flash-full-item{
+    aspect-ratio:1/1; border-radius:6px;
+    border:1.5px dashed rgba(122,74,80,0.4);
+    background:linear-gradient(160deg, rgba(143,91,96,0.10), rgba(185,146,79,0.10));
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-utility); font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--rose-deep); text-align:center; padding:0.8rem;
+  }
+
+  .insta-embed{ background:var(--cream); padding:5rem 4vw; text-align:center; }
+  .insta-placeholder{
+    max-width:640px; margin:0 auto; border:1.5px dashed rgba(122,74,80,0.4);
+    border-radius:8px; padding:2.5rem 1.5rem; color:var(--rose-deep);
+    font-family:var(--font-utility); font-size:0.85rem; line-height:1.7;
+  }
+
+  .content-section{ padding:6rem 6vw; background:var(--cream); }
+  .content-section.alt{ background:var(--cream-dark); }
+  .section-head{ max-width:640px; margin:0 auto 3rem; text-align:center; }
+  .section-head .eyebrow{ margin-bottom:0.8rem; }
+  .section-head h2{ font-size:clamp(2rem,4vw,2.8rem); font-style:italic; }
+  .service-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; max-width:1000px; margin:0 auto; border-top:1px solid var(--line); }
+  .service-item{ padding:1.3rem 1rem; border-bottom:1px solid var(--line); border-right:1px solid var(--line); font-family:var(--font-display); font-style:italic; font-size:1.15rem; text-align:center; }
+  .service-item:nth-child(4n){ border-right:none; }
+  .faq-grid{ display:grid; grid-template-columns:1fr 1fr; gap:2rem 3rem; max-width:1000px; margin:0 auto; }
+  .faq-item h3{ font-family:var(--font-utility); font-size:0.9rem; color:var(--rose-deep); margin-bottom:0.4rem; }
+  .faq-item p{ color:#4a3d30; font-size:0.98rem; }
+
+  .contact-band{ background:var(--ink); color:var(--cream); padding:3.5rem 4vw; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1.5rem; font-family:var(--font-utility); font-size:0.85rem; letter-spacing:0.05em; }
+  .contact-band a{ text-decoration:none; border-bottom:1px solid rgba(237,226,207,0.3); }
+  .contact-band a:hover{ border-color:var(--gold-soft); }
+
+  .map-embed{ width:100%; height:380px; border:0; display:block; filter:grayscale(0.15) contrast(1.05); }
+
+  @media (max-width:900px){
+    .hero{ grid-template-columns:1fr; }
+    .about{ grid-template-columns:1fr; }
+    .about::before{ display:none; }
+    .about-col{ padding:1.5rem 0; }
+    .moon{ display:none; }
+    .filmstrip{ grid-template-columns:repeat(2,1fr); }
+    .band{ grid-template-columns:1fr; }
+    .service-grid{ grid-template-columns:repeat(2,1fr); }
+    .service-item:nth-child(2n){ border-right:none; }
+    .faq-grid{ grid-template-columns:1fr; }
+    nav ul{ display:none; }
+  }
+  .sparkle-field{ position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:0; }
+  .sparkle{
+    position:absolute; color:var(--gold-soft);
+    font-size:var(--s,12px);
+    animation:twinkle var(--dur,3.5s) ease-in-out infinite;
+    animation-delay:var(--delay,0s);
+  }
+  @keyframes twinkle{
+    0%, 100%{ opacity:0.15; transform:scale(0.85); }
+    50%{ opacity:0.9; transform:scale(1.1); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .sparkle{ animation:none; opacity:0.5; }
+  }
+
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <nav><ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Portfolio</a></li>
+  </ul></nav>
+  <div class="brand"><img src="assets/logo.png" alt="Twin Stars Tattoo" style="height:52px; width:auto;"></div>
+  <nav><ul>
+    <li><a href="#flash">Flash</a></li>
+    <li><a href="#booking">Booking</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul></nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="sparkle-field" aria-hidden="true">
+    <span class="sparkle" style="--s:14px; top:10%; left:6%; --dur:3.2s; --delay:0s;">✦</span>
+    <span class="sparkle" style="--s:10px; top:22%; left:14%; --dur:4s; --delay:0.6s;">✧</span>
+    <span class="sparkle" style="--s:12px; top:6%; left:35%; --dur:3.6s; --delay:1.2s;">✦</span>
+    <span class="sparkle" style="--s:16px; top:14%; left:52%; --dur:4.4s; --delay:0.3s;">✧</span>
+    <span class="sparkle" style="--s:10px; top:60%; left:8%; --dur:3.8s; --delay:1.6s;">✦</span>
+    <span class="sparkle" style="--s:12px; top:75%; left:20%; --dur:3.4s; --delay:0.9s;">✧</span>
+  </div>
+  <img class="hero-fairy" src="assets/fairy_flute.jpg" alt="" aria-hidden="true">
+  <div class="hero-copy">
+    <p class="eyebrow">Selma, North Carolina</p>
+    <img src="assets/logo.png" alt="Twin Stars Tattoo" style="height:110px; width:auto; margin-bottom:1.2rem;">
+    <h1><span>Whimsy.</span><span>Magic.</span><span>You.</span></h1>
+    <p class="tagline">Fine line tattoos with a storybook soul</p>
+    <div class="hero-actions">
+      <a class="btn-dark" href="https://venue.ink/@twinstarstattoo" target="_blank" rel="noopener">✦ Book an appointment ✦</a>
+    </div>
+  </div>
+  <div class="hero-frame">
+    <p class="ph-label">Photo placeholder — swap in a real healed tattoo shot here (arm/back piece works best in this frame)</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <img class="about-illustration" src="assets/rackham_girl.jpg" alt="">
+  <div class="about-col">
+    <p class="eyebrow">About the Artists</p>
+    <h3>Kathy &amp; Elena</h3>
+    <p>Two artists, one storybook studio. Kathy brings fine line, whimsical, and floral work shaped by a background in psychology and art studies. Elena brings black &amp; grey, fine line, and illustrative custom pieces. Together they built Twin Stars to make every appointment feel personal, comfortable, and memorable.</p>
+    <a class="more" href="#gallery">See our work</a>
+  </div>
+  <div class="about-col divided">
+    <p class="eyebrow">Specializing In</p>
+    <ul>
+      <li>Fine line</li>
+      <li>Black &amp; grey</li>
+      <li>Illustrative</li>
+      <li>Floral &amp; botanical</li>
+      <li>Custom &amp; memorial</li>
+    </ul>
+  </div>
+  <div class="moon" aria-hidden="true"></div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="sparkle-field" aria-hidden="true">
+    <span class="sparkle" style="--s:12px; top:8%; left:4%; --dur:3.5s; --delay:0.4s; color:var(--rose-deep);">✦</span>
+    <span class="sparkle" style="--s:10px; top:12%; right:6%; --dur:4.2s; --delay:1s; color:var(--rose-deep);">✧</span>
+  </div>
+  <h2>Recent Work</h2>
+  <div class="filmstrip">
+    <div class="film-item">Add tattoo photo</div>
+    <div class="film-item">Add tattoo photo</div>
+    <div class="film-item">Add tattoo photo</div>
+    <div class="film-item">Add tattoo photo</div>
+    <div class="film-item">Add tattoo photo</div>
+  </div>
+  <a class="gallery-link" href="#services">View full portfolio</a>
+</section>
+
+<!-- FLASH GALLERY -->
+<section class="flash-gallery" id="flash">
+  <div class="sparkle-field" aria-hidden="true">
+    <span class="sparkle" style="--s:12px; top:10%; left:5%; --dur:3.8s; --delay:0.2s;">✦</span>
+    <span class="sparkle" style="--s:10px; bottom:10%; right:6%; --dur:4s; --delay:1.3s;">✧</span>
+  </div>
+  <div class="section-head">
+    <p class="eyebrow">Ready to Book</p>
+    <h2>Flash Designs</h2>
+  </div>
+  <div class="flash-full-grid">
+    <div class="flash-full-item">Flash design</div>
+    <div class="flash-full-item">Flash design</div>
+    <div class="flash-full-item">Flash design</div>
+    <div class="flash-full-item">Flash design</div>
+    <div class="flash-full-item">Flash design</div>
+    <div class="flash-full-item">Flash design</div>
+    <div class="flash-full-item">Flash design</div>
+    <div class="flash-full-item">Flash design</div>
+  </div>
+</section>
+
+<!-- FLASH / BOOKING BAND -->
+<section class="band" id="booking">
+  <div class="band-col">
+    <h3>Flash</h3>
+    <p>Original designs, ready to book.</p>
+    <div class="flash-grid">
+      <div class="flash-thumb">Flash design</div>
+      <div class="flash-thumb">Flash design</div>
+      <div class="flash-thumb">Flash design</div>
+      <div class="flash-thumb">Flash design</div>
+    </div>
+    <a class="link" href="#flash" style="display:block;margin-top:1rem;">View flash</a>
+  </div>
+  <div class="cta-stone">
+    Let's create something magical together
+    <a class="btn-mini" href="https://venue.ink/@twinstarstattoo" target="_blank" rel="noopener">Book now</a>
+  </div>
+  <div class="band-col">
+    <h3>Booking</h3>
+    <p>Appointments by request. Deposit required, applied to your final price.</p>
+    <a class="link" href="https://venue.ink/@twinstarstattoo" target="_blank" rel="noopener">Book now</a>
+    <div class="band-illustration"><img src="assets/dulac_interior.jpg" alt=""></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="content-section" id="services">
+  <div class="section-head">
+    <p class="eyebrow">What We Do</p>
+    <h2>Tattoo Services</h2>
+  </div>
+  <div class="service-grid">
+    <div class="service-item">Fine Line</div>
+    <div class="service-item">Black &amp; Grey</div>
+    <div class="service-item">Illustrative</div>
+    <div class="service-item">Traditional</div>
+    <div class="service-item">Color</div>
+    <div class="service-item">Custom</div>
+    <div class="service-item">Matching</div>
+    <div class="service-item">Memorial</div>
+    <div class="service-item">Floral</div>
+    <div class="service-item">Anime &amp; Pop Culture</div>
+    <div class="service-item">Tiny Tattoos</div>
+    <div class="service-item">Cover Ups</div>
+  </div>
+</section>
+
+<!-- POLICIES -->
+<section class="content-section alt" id="policies">
+  <div class="section-head">
+    <p class="eyebrow">Good to Know</p>
+    <h2>Policies &amp; FAQ</h2>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item"><h3>Age &amp; ID</h3><p>18+ only, with a valid, government issued photo ID. No exceptions.</p></div>
+    <div class="faq-item"><h3>Deposits</h3><p>Nonrefundable, applied to your final price. 48 hours notice to reschedule.</p></div>
+    <div class="faq-item"><h3>Touch Ups</h3><p>One complimentary touchup within 90 days for normal healing (excludes hands/feet).</p></div>
+    <div class="faq-item"><h3>Consent Form</h3><p>Review it before your appointment. <a href="assets/twin-stars-consent-form.pdf" download style="text-decoration:underline;">Download the consent form (PDF)</a></p></div>
+    <div class="faq-item"><h3>Refunds</h3><p>Tattoos are permanent custom artwork — all sales are final once work begins.</p></div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="insta-embed">
+  <div class="section-head" style="margin-left:auto;margin-right:auto;">
+    <p class="eyebrow">Follow Along</p>
+    <h2>@twinstarstattoo</h2>
+  </div>
+  <div class="insta-placeholder">
+    Live Instagram feed goes here. This needs a Meta Developer app connected to the @twinstarstattoo business account, or a hosted widget like SnapWidget, LightWidget, or Elfsight — pick one, create the account, and drop its embed code into this block.
+  </div>
+</section>
+
+<!-- MAP -->
+<iframe class="map-embed" src="https://www.google.com/maps?q=110+W.+Anderson+Street,+Selma,+NC+27576&output=embed" loading="lazy" title="Twin Stars Tattoo location"></iframe>
+
+<!-- CONTACT -->
+<div class="contact-band" id="contact">
+  <span>@twinstarstattoo</span>
+  <span><a href="mailto:twinstarstattoo@gmail.com">twinstarstattoo@gmail.com</a></span>
+  <span>984.766.1339</span>
+  <span>110 W. Anderson St, Selma, NC</span>
+</div>
+
+</body>
+</html>
