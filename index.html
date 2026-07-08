@@ -39,15 +39,17 @@
 
 <style>
   :root{
-    --white:#ffffff;
-    --milk:#ffe9f1;
-    --milk-deep:#ffc9dd;
-    --berry:#f0507e;
-    --berry-deep:#d63d69;
-    --ink:#1c1512;
-    --ink-soft:#5a4d49;
-    --paper:#fffbfc;
-    --line:rgba(28,21,18,0.16);
+    --white:#f7efdd;
+    --milk:#e6d6b8;
+    --milk-deep:#c7a0ac;
+    --berry:#5c1524;
+    --berry-deep:#2f0c15;
+    --ink:#100c0a;
+    --ink-soft:#463c34;
+    --paper:#efe2c9;
+    --gold:#8a6a28;
+    --gold-soft:#cbad74;
+    --line:rgba(16,12,10,0.2);
     --display: 'Fraunces', serif;
     --body: 'Cormorant Garamond', serif;
     --nav: 'Jost', sans-serif;
@@ -58,7 +60,9 @@
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background:var(--white);
+    background:
+      radial-gradient(ellipse at center, rgba(16,12,10,0) 55%, rgba(16,12,10,0.10) 100%),
+      var(--white);
     color:var(--ink);
     font-family:var(--body);
     font-size:19px;
@@ -73,7 +77,7 @@
     font-size:12.5px;
     letter-spacing:0.22em;
     text-transform:uppercase;
-    color:var(--berry-deep);
+    color:var(--gold);
     font-weight:600;
   }
   .wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px;}
@@ -87,7 +91,7 @@
     text-transform:uppercase;
     font-weight:600;
     padding:16px 30px;
-    border-radius:999px;
+    border-radius:3px;
     border:2px solid var(--ink);
     text-decoration:none;
     background:var(--ink);
@@ -113,6 +117,15 @@
   @keyframes twinkle{
     0%,100%{opacity:0.35;transform:scale(0.9) rotate(var(--r,0deg));}
     50%{opacity:1;transform:scale(1.08) rotate(var(--r,0deg));}
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .flutter{animation:flutter 6s ease-in-out infinite;}
+    .flutter.d2{animation-delay:1.4s;}
+    .flutter.d3{animation-delay:2.8s;}
+  }
+  @keyframes flutter{
+    0%,100%{transform:translateY(0) rotate(var(--r,0deg));}
+    50%{transform:translateY(-12px) rotate(calc(var(--r, 0deg) + 5deg));}
   }
 
   /* constellation thread, the signature element */
@@ -142,7 +155,7 @@
   /* NAV */
   header{
     position:sticky;top:0;z-index:50;
-    background:rgba(255,255,255,0.9);
+    background:rgba(253,248,241,0.92);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
@@ -202,7 +215,7 @@
     transform:rotate(-1.2deg);
     transform-origin:left center;
   }
-  .hero h1 em{font-style:italic;color:var(--berry);}
+  .hero h1 em{font-style:italic;color:var(--milk-deep);}
   .hero p.lede{
     font-size:23px;color:var(--ink-soft);max-width:480px;margin:26px 0 34px;
   }
@@ -214,14 +227,16 @@
   .hero-art .frame{
     position:relative;
     width:min(420px,90%);
-    border-radius:50% 50% 46% 54% / 55% 50% 50% 45%;
+    border-radius:50%;
     border:3px solid var(--ink);
+    outline:2px solid var(--gold);
+    outline-offset:-9px;
     background:var(--milk-deep);
     padding:14px;
     transform:rotate(3deg);
-    box-shadow:14px 18px 0 -6px var(--milk), 0 24px 40px rgba(28,21,18,0.12);
+    box-shadow:14px 18px 0 -6px var(--milk), 0 24px 40px rgba(16,12,10,0.18);
   }
-  .hero-art img{border-radius:50% 50% 46% 54% / 55% 50% 50% 45%;}
+  .hero-art img{border-radius:50%;}
   .hero-scatter{position:absolute;inset:0;z-index:1;pointer-events:none;}
 
   @media (max-width:900px){
@@ -235,7 +250,8 @@
     padding:6px 0 0;
   }
   .divider svg{width:26px;height:26px;flex:none;}
-  .divider .rule{height:1px;flex:1;max-width:220px;background:var(--line);}
+  .divider .vine-mark{width:120px;height:18px;flex:none;color:var(--gold);opacity:0.8;}
+  .divider .rule{height:1px;flex:1;max-width:180px;background:var(--line);}
 
   section{position:relative;}
   .section-pad{padding:96px 28px;}
@@ -251,7 +267,9 @@
   .artist-card{
     position:relative;background:var(--white);
     border:1.5px solid var(--ink);
-    border-radius:22px;
+    outline:1px solid var(--gold);
+    outline-offset:-7px;
+    border-radius:6px;
     padding:34px 30px 40px;
   }
   .artist-card:nth-child(1){transform:rotate(-1.6deg);}
@@ -259,6 +277,8 @@
   .artist-photo{
     width:132px;height:132px;border-radius:50%;
     border:2.5px solid var(--ink);
+    outline:1px solid var(--gold);
+    outline-offset:-5px;
     margin-bottom:20px;
     display:flex;align-items:center;justify-content:center;
     background:var(--milk);
@@ -278,6 +298,7 @@
     color:var(--white);
     text-align:center;
     padding:110px 28px;
+    position:relative;
   }
   .statement blockquote{
     font-family:var(--display);
@@ -287,20 +308,28 @@
     max-width:820px;margin:0 auto;
     transform:rotate(-0.6deg);
   }
+  .statement blockquote::first-letter{
+    font-style:normal;
+    font-size:1.9em;
+    color:var(--gold-soft);
+  }
   .statement .signoff{font-family:var(--nav);font-size:13px;letter-spacing:0.18em;text-transform:uppercase;margin-top:28px;display:block;opacity:0.9;}
+  .statement .raven{position:absolute;width:64px;height:auto;color:var(--gold-soft);opacity:0.5;}
 
-  /* PLACEHOLDER PHOTO SLOT */
+  /* PLACEHOLDER PHOTO SLOT, styled like an engraved bookplate */
   .photo-slot{
     position:relative;
-    border:2px dashed var(--ink);
-    border-radius:16px;
+    border:2px solid var(--ink);
+    outline:1px solid var(--gold);
+    outline-offset:-6px;
+    border-radius:4px;
     background:var(--milk);
     display:flex;flex-direction:column;align-items:center;justify-content:center;
     gap:10px;color:var(--ink-soft);
     font-family:var(--nav);font-size:12.5px;letter-spacing:0.05em;text-align:center;
     padding:16px;
   }
-  .photo-slot svg{width:38px;height:38px;opacity:0.55;}
+  .photo-slot svg{width:34px;height:34px;opacity:0.6;}
   .photo-slot span{max-width:80%;}
 
   /* GALLERY FILMSTRIP */
@@ -320,16 +349,20 @@
   .film-item:nth-child(odd) .photo-slot{transform:rotate(-2.2deg);}
   .film-item:nth-child(even) .photo-slot{transform:rotate(2deg);}
 
-  /* FLASH GALLERY */
-  .flash{background:var(--paper);}
-  .flash-grid{
+  /* PORTFOLIO, split by artist */
+  .portfolio{background:var(--paper);}
+  .portfolio-artist{margin-bottom:56px;}
+  .portfolio-artist:last-child{margin-bottom:0;}
+  .portfolio-artist h3{font-size:26px;margin-bottom:4px;}
+  .portfolio-artist .artist-role{margin:0 0 22px;}
+  .portfolio-grid{
     display:grid;grid-template-columns:repeat(4,1fr);gap:22px;
   }
-  .flash-grid .photo-slot{aspect-ratio:1/1;}
-  .flash-grid .item:nth-child(3n+1) .photo-slot{transform:rotate(-1.6deg);}
-  .flash-grid .item:nth-child(3n+2) .photo-slot{transform:rotate(1.2deg);}
-  .flash-grid .item:nth-child(3n+3) .photo-slot{transform:rotate(-0.6deg);}
-  @media (max-width:920px){.flash-grid{grid-template-columns:repeat(2,1fr);}}
+  .portfolio-grid .photo-slot{aspect-ratio:1/1;}
+  .portfolio-grid .item:nth-child(3n+1) .photo-slot{transform:rotate(-1.6deg);}
+  .portfolio-grid .item:nth-child(3n+2) .photo-slot{transform:rotate(1.2deg);}
+  .portfolio-grid .item:nth-child(3n+3) .photo-slot{transform:rotate(-0.6deg);}
+  @media (max-width:920px){.portfolio-grid{grid-template-columns:repeat(2,1fr);}}
 
   /* BOOKING BAND */
   .booking-band{
@@ -341,7 +374,7 @@
     overflow:hidden;
   }
   .booking-band h2{font-size:clamp(30px,4vw,50px);transform:rotate(-1deg);}
-  .booking-band p{font-size:20px;color:#e9dfe2;max-width:520px;margin:18px auto 30px;}
+  .booking-band p{font-size:20px;color:#d8cdc6;max-width:520px;margin:18px auto 30px;}
   .booking-band .btn{background:var(--berry);border-color:var(--berry);}
   .booking-band .btn:hover{background:var(--white);color:var(--ink);border-color:var(--white);}
 
@@ -361,7 +394,8 @@
   @media (max-width:700px){.services-list{columns:1;}}
 
   .price-note{
-    margin-top:36px;background:var(--milk);border:1.5px solid var(--ink);border-radius:18px;
+    margin-top:36px;background:var(--milk);border:1.5px solid var(--ink);border-radius:6px;
+    outline:1px solid var(--gold);outline-offset:-6px;
     padding:26px 30px;max-width:560px;transform:rotate(-0.7deg);
   }
   .price-note .big{font-family:var(--display);font-size:34px;color:var(--berry-deep);}
@@ -397,7 +431,7 @@
   .social-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:24px;}
   .social-links a{
     font-family:var(--nav);font-size:14px;letter-spacing:0.04em;
-    border:1.5px solid var(--ink);border-radius:999px;padding:12px 24px;
+    border:1.5px solid var(--ink);border-radius:3px;padding:12px 24px;
     text-decoration:none;display:inline-flex;align-items:center;gap:8px;
     transition:background .2s ease, color .2s ease;
   }
@@ -414,7 +448,7 @@
   .map-frame iframe{width:100%;height:400px;border:0;display:block;}
 
   /* CONTACT BAR / FOOTER */
-  footer{background:var(--ink);color:#f4e9ee;padding:64px 28px 30px;}
+  footer{background:var(--ink);color:#ece3da;padding:64px 28px 30px;}
   .footer-grid{
     display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;
     max-width:var(--wrap);margin:0 auto;
@@ -422,8 +456,8 @@
   .footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
   .footer-brand img{height:46px;filter:brightness(0) invert(1);}
   .footer-brand span{font-family:var(--display);font-size:22px;}
-  footer h4{font-family:var(--nav);font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#f5a7c1;margin-bottom:16px;}
-  footer p, footer li{font-size:15.5px;color:#e6d7dd;}
+  footer h4{font-family:var(--nav);font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#c98a9d;margin-bottom:16px;}
+  footer p, footer li{font-size:15.5px;color:#d9cdc4;}
   footer ul{list-style:none;margin:0;padding:0;}
   footer li{padding:6px 0;}
   footer a{text-decoration:none;}
@@ -445,6 +479,22 @@
   <symbol id="starsimple" viewBox="0 0 100 100">
     <path class="star-doodle" d="M50 8 C52 34 56 44 92 46 C56 48 52 58 50 92 C48 58 44 48 8 46 C44 44 48 34 50 8 Z"/>
   </symbol>
+  <symbol id="fairy" viewBox="0 0 100 100">
+    <circle class="star-doodle" cx="50" cy="20" r="7.5"/>
+    <path class="star-doodle" d="M43 29 C40 42 37 58 32 70 L68 70 C63 58 60 42 57 29 Z"/>
+    <path class="star-doodle" d="M43 33 C22 16 6 30 16 46 C23 57 36 52 43 40 Z"/>
+    <path class="star-doodle" d="M57 33 C78 16 94 30 84 46 C77 57 64 52 57 40 Z"/>
+    <path class="star-doodle" d="M37 70 L33 92 M63 70 L67 92" style="fill:none;"/>
+    <path class="star-doodle" d="M63 48 L86 26" style="fill:none;"/>
+    <path class="star-doodle" d="M86 26 L92 18 M86 26 L94 24 M86 26 L88 34" style="fill:none;"/>
+  </symbol>
+  <symbol id="raven" viewBox="0 0 100 60">
+    <path class="star-doodle" d="M50 34 C40 20 22 14 4 22 C16 22 24 26 28 32 C14 30 4 36 2 46 C10 40 20 38 28 40 C24 46 26 52 32 56 C32 48 36 42 42 40 C46 44 50 44 54 40 C60 42 64 48 64 56 C70 52 72 46 68 40 C76 38 86 40 94 46 C92 36 82 30 68 32 C72 26 80 22 92 22 C74 14 56 20 50 34 Z" style="fill:none;"/>
+  </symbol>
+  <symbol id="vine" viewBox="0 0 300 40">
+    <path class="star-doodle" d="M2 20 C30 4 40 36 68 20 C96 4 106 36 134 20 C162 4 172 36 200 20 C228 4 238 36 266 20 C280 12 290 14 298 20" style="fill:none;stroke-width:4;"/>
+    <path class="star-doodle" d="M30 20 L26 10 M30 20 L34 10 M90 20 L86 32 M90 20 L94 32 M150 20 L146 10 M150 20 L154 10 M210 20 L206 32 M210 20 L214 32 M266 20 L262 10 M266 20 L270 10" style="fill:none;stroke-width:3;"/>
+  </symbol>
 </svg>
 
 <header>
@@ -456,7 +506,7 @@
     <nav class="links">
       <a href="#about">About</a>
       <a href="#gallery">Gallery</a>
-      <a href="#flash">Flash</a>
+      <a href="#portfolio">Portfolio</a>
       <a href="#services">Services</a>
       <a href="#policies">Policies</a>
       <a href="#contact">Contact</a>
@@ -467,7 +517,7 @@
   <nav class="mobile-links" id="mobileLinks">
     <a href="#about">About</a>
     <a href="#gallery">Gallery</a>
-    <a href="#flash">Flash</a>
+    <a href="#portfolio">Portfolio</a>
     <a href="#services">Services</a>
     <a href="#policies">Policies</a>
     <a href="#contact">Contact</a>
@@ -486,6 +536,8 @@
       <svg class="twinkle" style="--r:-8deg;position:absolute;top:8%;left:4%;width:34px;height:34px;color:var(--ink);opacity:0.5;" viewBox="0 0 100 100"><use href="#starsimple"/></svg>
       <svg class="twinkle d2" style="--r:6deg;position:absolute;top:60%;left:2%;width:22px;height:22px;color:var(--berry);opacity:0.6;" viewBox="0 0 100 100"><use href="#star6"/></svg>
       <svg class="twinkle d3" style="--r:10deg;position:absolute;top:20%;right:6%;width:26px;height:26px;color:var(--ink);opacity:0.4;" viewBox="0 0 100 100"><use href="#starsimple"/></svg>
+      <svg class="flutter" style="--r:-6deg;position:absolute;top:38%;left:8%;width:40px;height:40px;color:var(--ink);opacity:0.5;" viewBox="0 0 100 100"><use href="#fairy"/></svg>
+      <svg class="flutter d2" style="--r:8deg;position:absolute;top:12%;right:16%;width:30px;height:30px;color:var(--berry);opacity:0.55;" viewBox="0 0 100 100"><use href="#fairy"/></svg>
     </div>
 
     <div class="hero-inner">
@@ -506,12 +558,13 @@
     </div>
   </section>
 
-  <div class="divider"><span class="rule"></span><svg viewBox="0 0 100 100"><use href="#star6" style="color:var(--berry)"/></svg><span class="rule"></span></div>
+  <div class="divider"><span class="rule"></span><svg class="vine-mark" viewBox="0 0 300 40"><use href="#vine"/></svg><svg viewBox="0 0 100 100" style="color:var(--gold);"><use href="#star6"/></svg><svg class="vine-mark" viewBox="0 0 300 40" style="transform:scaleX(-1);"><use href="#vine"/></svg><span class="rule"></span></div>
 
   <!-- ABOUT -->
   <section class="about section-pad" id="about">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head" style="position:relative;">
+        <svg style="position:absolute;top:-18px;left:210px;width:34px;height:34px;color:var(--berry);opacity:0.55;" class="flutter d3" viewBox="0 0 100 100"><use href="#fairy"/></svg>
         <span class="eyebrow">Meet the studio</span>
         <h2>Kathy and Elena</h2>
       </div>
@@ -542,6 +595,8 @@
 
   <!-- STATEMENT -->
   <section class="statement">
+    <svg class="raven" style="top:36px;left:8%;" viewBox="0 0 100 60"><use href="#raven"/></svg>
+    <svg class="raven" style="top:36px;right:8%;transform:scaleX(-1);" viewBox="0 0 100 60"><use href="#raven"/></svg>
     <blockquote>
       Getting tattooed should feel personal, comfortable, and memorable, from your first consultation to your final healed piece.
       <span class="signoff">The Twin Stars promise</span>
@@ -572,28 +627,47 @@
     </div>
   </section>
 
-  <!-- FLASH GALLERY -->
-  <section class="flash section-pad" id="flash">
+  <!-- PORTFOLIO -->
+  <section class="portfolio section-pad" id="portfolio">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Ready to tattoo</span>
-        <h2>Flash sheet</h2>
+        <span class="eyebrow">The artists' work</span>
+        <h2>Portfolio</h2>
       </div>
-      <!-- Replace each .photo-slot with <img src="assets/flash-1.jpg" alt="..."> once flash art is supplied -->
-      <div class="flash-grid">
-        <div class="item"><div class="photo-slot"><svg><use href="#star6"/></svg><span>Flash 1</span></div></div>
-        <div class="item"><div class="photo-slot"><svg><use href="#star6"/></svg><span>Flash 2</span></div></div>
-        <div class="item"><div class="photo-slot"><svg><use href="#star6"/></svg><span>Flash 3</span></div></div>
-        <div class="item"><div class="photo-slot"><svg><use href="#star6"/></svg><span>Flash 4</span></div></div>
+
+      <!-- Replace each .photo-slot with <img src="assets/kathy-1.jpg" alt="describe the piece"> once Kathy's photos are supplied -->
+      <div class="portfolio-artist">
+        <h3>Kathy Diaz</h3>
+        <span class="artist-role">Fine line and illustrative work</span>
+        <div class="portfolio-grid">
+          <div class="item"><div class="photo-slot"><svg><use href="#star6"/></svg><span>Kathy's work 1</span></div></div>
+          <div class="item"><div class="photo-slot"><svg><use href="#star6"/></svg><span>Kathy's work 2</span></div></div>
+          <div class="item"><div class="photo-slot"><svg><use href="#star6"/></svg><span>Kathy's work 3</span></div></div>
+          <div class="item"><div class="photo-slot"><svg><use href="#star6"/></svg><span>Kathy's work 4</span></div></div>
+        </div>
+      </div>
+
+      <!-- Replace each .photo-slot with <img src="assets/elena-1.jpg" alt="describe the piece"> once Elena's photos are supplied -->
+      <div class="portfolio-artist">
+        <h3>Elena Coletta</h3>
+        <span class="artist-role">Black and grey and custom work</span>
+        <div class="portfolio-grid">
+          <div class="item"><div class="photo-slot"><svg><use href="#star6"/></svg><span>Elena's work 1</span></div></div>
+          <div class="item"><div class="photo-slot"><svg><use href="#star6"/></svg><span>Elena's work 2</span></div></div>
+          <div class="item"><div class="photo-slot"><svg><use href="#star6"/></svg><span>Elena's work 3</span></div></div>
+          <div class="item"><div class="photo-slot"><svg><use href="#star6"/></svg><span>Elena's work 4</span></div></div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- BOOKING BAND -->
   <section class="booking-band">
+    <svg class="raven" style="position:absolute;top:44px;left:10%;width:56px;height:auto;color:var(--gold-soft);opacity:0.4;" viewBox="0 0 100 60"><use href="#raven"/></svg>
+    <svg class="raven" style="position:absolute;top:44px;right:10%;width:56px;height:auto;color:var(--gold-soft);opacity:0.4;transform:scaleX(-1);" viewBox="0 0 100 60"><use href="#raven"/></svg>
     <div class="wrap" style="position:relative;z-index:1;">
-      <span class="eyebrow" style="color:var(--milk-deep);">Flash moves fast</span>
-      <h2>Claim your star before someone else does.</h2>
+      <span class="eyebrow" style="color:var(--gold-soft);">Before the hour turns</span>
+      <h2>Claim your appointment while the stars align.</h2>
       <p>Walk ins are welcome Friday through Sunday based on artist availability. Appointments book out one to four weeks in advance.</p>
       <a class="btn" href="https://venue.ink/@twinstarstattoo" target="_blank" rel="noopener">Book on Venue Ink</a>
     </div>
@@ -704,7 +778,8 @@
 </main>
 
 <!-- CONTACT / FOOTER -->
-<footer id="contact">
+<footer id="contact" style="position:relative;overflow:hidden;">
+  <svg style="position:absolute;top:20px;right:6%;width:60px;height:auto;color:var(--gold-soft);opacity:0.35;" viewBox="0 0 100 60"><use href="#raven"/></svg>
   <div class="footer-grid">
     <div>
       <div class="footer-brand">
@@ -730,6 +805,7 @@
       <ul>
         <li><a href="#about">About the artists</a></li>
         <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#services">Services and pricing</a></li>
         <li><a href="#policies">Policies and FAQ</a></li>
         <li><a href="https://venue.ink/@twinstarstattoo" target="_blank" rel="noopener">Book an appointment</a></li>
